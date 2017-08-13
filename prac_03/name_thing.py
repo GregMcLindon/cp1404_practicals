@@ -20,4 +20,5 @@ def print_name_thing(string_text,int_step):
 string_name = get_name()
 int_step = int(input("How many characters to print?"))
 print_name_thing(string_name,int_step)
+
 main()
