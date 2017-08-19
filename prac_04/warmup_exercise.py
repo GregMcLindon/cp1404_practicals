@@ -1,5 +1,5 @@
 VOWELS = "aeiou"
-name = input('What is your name?')
+name = input('NAME: ')
 count_letters = len(name)
 vowel_count = 0
 for char in name:
