@@ -1,4 +1,4 @@
-"""Validates user names against a list"""
+"""Validates user names against a list."""
 
 usernames = ['jimbo', 'giltson98', 'derekf', 'WhatSup', 'NicolEye',
 'swei45''BaseInterpreterInterface', 'BaseStdIn', 'Command', 'ExecState',
