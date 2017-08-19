@@ -12,5 +12,5 @@ facts_list = (("The first number is ", numbers[0]),
               ("The average of the numbers is ", sum(numbers)/len(numbers)))
 #print(numbers)
 #print(str.format("{}{}",facts_list[0][0],facts_list[0][1]))
-for x in range(len(facts_list)):
-    print(str.format("{}{}",facts_list[x][0],facts_list[x][1]))
+for facts in range(len(facts_list)):
+    print(str.format("{}{}",facts_list[facts][0],facts_list[facts][1]))
