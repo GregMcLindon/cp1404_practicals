@@ -15,13 +15,13 @@ BoxLayout:
                 #pos_hint: {'x': 0.5, 'y': 0.5}
                 text: 'Up'
                 font_size: 20
-                #on_press: app.handle_clear()
+                on_press: app.handle_increment(1)
             Button:
                 #size_hint: 0.5, 1.0
                 #pos_hint: {'x': 0.5, 'y': 0.5}
                 text: 'Down'
                 font_size: 20
-                #on_press: app.handle_clear()
+                on_press: app.handle_increment(-1)
     Button:
         text: 'Convert m to km'
         font_size: 20

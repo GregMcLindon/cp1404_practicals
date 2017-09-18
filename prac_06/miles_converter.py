@@ -26,4 +26,12 @@ class MilesToKilometers(App):
         result = "{:.3f}".format(float(value) * CONVERSION_FACTOR)
         self.root.ids.output_label.text = result
 
+    def handle_increment(self, factor):
+        """adds/minus the factor to the miles value and calls the handle_calculate with the new value"""
+        new_miles = float(self.root.ids.input_miles.text) + factor
+        self.root.ids.input_miles.text = str(new_miles)
+        self.handle_calculate(new_miles)
+        #print(factor)
+
+
 MilesToKilometers().run()
