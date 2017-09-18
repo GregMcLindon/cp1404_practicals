@@ -1,3 +1,44 @@
+<Widget>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    color: 0, 0, 0, 1
+
+<Button>:
+    font_size: 34
+    background_normal: ''
+    background_down: 'atlas://data/images/defaulttheme/button'
+    canvas.after:
+        Color:
+            rgba: 1, 1, 0, 1
+        Line:
+            rectangle: self.x + 1, self.y + 1, self.width - 1, self.height - 1
+
+<Label>:
+#    font_name: 'BuxtonSketch.ttf'
+    font_size: 34
+    background_normal: ''
+    background_down: 'atlas://data/images/defaulttheme/button'
+    canvas.after:
+        Color:
+            rgba: 1, 1, 0, 1
+        Line:
+            rectangle: self.x + 1, self.y + 1, self.width - 1, self.height - 1
+
+<TextInput>:
+    font_size: 24
+    background_normal: ''
+    background_down: 'atlas://data/images/defaulttheme/button'
+    color: 0, 0, 0, 1
+    canvas.after:
+        Color:
+            rgba: 1, 1, 0, 1
+        Line:
+            rectangle: self.x + 1, self.y + 1, self.width - 1, self.height - 1
+
 BoxLayout:
     orientation: 'vertical'
     BoxLayout:
@@ -5,19 +46,21 @@ BoxLayout:
         TextInput:
             id: input_miles
             size_hint: 3.0, 1.0
-            font_size: 34
+            #font_size: 34
+            text: '0.0'
+            #color: (1,1,1,1)
             on_text: app.handle_calculate(input_miles.text)
         BoxLayout:
             orientation: 'vertical'
             Button:
                 text: 'Up'
-                font_size: 20
+                #font_size: 20
                 on_press: app.handle_increment(1)
             Button:
                 text: 'Down'
-                font_size: 20
+                #font_size: 20
                 on_press: app.handle_increment(-1)
     Label:
         id: output_label
-        color: (1, 1, 0, 1)
-        font_size: 34
+        #color: (1, 1, 0, 1)
+        #font_size: 34
