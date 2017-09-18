@@ -1,0 +1,35 @@
+BoxLayout:
+    orientation: 'vertical'
+#    orientation: 'horizontal'
+    BoxLayout:
+        orientation: 'horizontal'
+        TextInput:
+            #id: input_name
+            #size_hint: 1.0, 1.0
+            size_hint: 3.0, 1.0
+            text: ''
+            font_size: 34
+        BoxLayout:
+            orientation: 'vertical'
+            Button:
+                #size_hint: 0.5, 1.0
+                #pos_hint: {'x': 0.5, 'y': 0.5}
+                text: 'Up'
+                font_size: 20
+                #on_press: app.handle_clear()
+            Button:
+                #size_hint: 0.5, 1.0
+                #pos_hint: {'x': 0.5, 'y': 0.5}
+                text: 'Down'
+                font_size: 20
+                #on_press: app.handle_clear()
+    Button:
+        text: 'Convert m to km'
+        font_size: 20
+        #on_press: app.handle_greet()
+    Label:
+        #id: output_label
+        text: '54.717'
+        #text_color: (255, 255, 0, 0)
+        color: (1, 1, 0, 1)
+        font_size: 34
