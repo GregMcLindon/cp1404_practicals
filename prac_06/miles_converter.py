@@ -9,7 +9,7 @@ from kivy.core.window import Window
 
 __author__ = 'Greg McLindon'
 
-CONVERSION_FACTOR = 1.6093235294117647058823529411765
+CONVERSION_FACTOR = 1.609324
 
 
 class MilesToKilometers(App):
@@ -25,7 +25,7 @@ class MilesToKilometers(App):
         """ handle calculation (could be button press or other call), output result to label widget """
         try:
             result = "{:.3f}".format(float(value) * CONVERSION_FACTOR)
-        except:
+        except ValueError:
             result = str(0.0)
         self.root.ids.output_label.text = result
 
@@ -33,11 +33,10 @@ class MilesToKilometers(App):
         """adds/minus the factor to the miles value and calls the handle_calculate with the new value"""
         try:
             new_miles = str(float(self.root.ids.input_miles.text) + factor)
-        except:
+        except ValueError:
             new_miles = str(0 + factor)
         self.root.ids.input_miles.text = new_miles
         self.handle_calculate(new_miles)
-        #print(factor)
 
 
 MilesToKilometers().run()
