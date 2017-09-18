@@ -23,13 +23,19 @@ class MilesToKilometers(App):
 
     def handle_calculate(self, value):
         """ handle calculation (could be button press or other call), output result to label widget """
-        result = "{:.3f}".format(float(value) * CONVERSION_FACTOR)
+        try:
+            result = "{:.3f}".format(float(value) * CONVERSION_FACTOR)
+        except:
+            result = str(0.0)
         self.root.ids.output_label.text = result
 
     def handle_increment(self, factor):
         """adds/minus the factor to the miles value and calls the handle_calculate with the new value"""
-        new_miles = float(self.root.ids.input_miles.text) + factor
-        self.root.ids.input_miles.text = str(new_miles)
+        try:
+            new_miles = str(float(self.root.ids.input_miles.text) + factor)
+        except:
+            new_miles = str(0 + factor)
+        self.root.ids.input_miles.text = new_miles
         self.handle_calculate(new_miles)
         #print(factor)
 
