@@ -9,6 +9,8 @@ from kivy.core.window import Window
 
 __author__ = 'Greg McLindon'
 
+CONVERSION_FACTOR = 1.6093235294117647058823529411765
+
 
 class MilesToKilometers(App):
     """ MilesToKilometers is a Kivy App for converting miles to kilometers"""
@@ -21,8 +23,7 @@ class MilesToKilometers(App):
 
     def handle_calculate(self, value):
         """ handle calculation (could be button press or other call), output result to label widget """
-        #result = value ** 2
-        #self.root.ids.output_label.text = str(result)
-        print("test ok")
+        result = "{:.3f}".format(float(value) * CONVERSION_FACTOR)
+        self.root.ids.output_label.text = result
 
 MilesToKilometers().run()
