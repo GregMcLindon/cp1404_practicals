@@ -11,11 +11,11 @@ class ProgrammingLanguage:
         self.reflection = reflection
         self.year = year
 
-    def __is_dynamic__(self):
+    def is_dynamic(self):
         """returns True if programming language is dynamic (as opposed to static)"""
-        return "{}".format(True if self.typing == "Dynamic" else False)
+        return True if self.typing == "Dynamic" else False
 
     def __str__(self):
         """Used for printing programming language details"""
-        return "{}, {}, Reflection={}, First appeared in {}".format(self.name, "Dynamic Typing" if self.__is_dynamic__()
-        else "Static Typing", self.reflection, self.year)
+        return "{}, {}, Reflection={}, First appeared in {}".format(
+            self.name, "Dynamic Typing" if self.is_dynamic() else "Static Typing", self.reflection, self.year)
