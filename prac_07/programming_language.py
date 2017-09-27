@@ -13,9 +13,10 @@ class ProgrammingLanguage:
 
     def is_dynamic(self):
         """returns True if programming language is dynamic (as opposed to static)"""
-        return True if self.typing == "Dynamic" else False
+        #return True if self.typing == "Dynamic" else False
+        return self.typing == "Dynamic"
 
     def __str__(self):
         """Used for printing programming language details"""
-        return "{}, {}, Reflection={}, First appeared in {}".format(
-            self.name, "Dynamic Typing" if self.is_dynamic() else "Static Typing", self.reflection, self.year)
+        return "{}, {} Typing, Reflection={}, First appeared in {}".format(
+            self.name, self.typing, self.reflection, self.year)

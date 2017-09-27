@@ -12,23 +12,17 @@ def main():
     print(ruby)
     print(python)
     print(visual_basic)
+    languages = [ruby, python, visual_basic]
+    # language_display = [language for language in languages if language.is_dynamic()]
+    # print(language_display)
+    # print("The dynamic languages are:\n:{}\n".format(language_display))
 
-    # my_car = Car("ute", 180)
-    # my_car.drive(30)
-    # print("fuel =", my_car.fuel)
-    # print("odo =", my_car.odometer)
-    # print(my_car)
-    #
-    # print("Car {}, {}".format(my_car.fuel, my_car.odometer))
-    # print("Car {self.fuel}, {self.odometer}".format(self=my_car))
-    # print(my_car)
-    #
-    # limo = Car("limo", 100)
-    # limo.add_fuel(20)
-    # print("limo fuel =", limo.fuel)
-    # limo.drive(115)
-    # print("limo odo =", limo.odometer)
-    # print(limo)
+    print("The dynamically typed languages are:")
+    for language in languages:
+        if language.is_dynamic():
+            print(language.name)
 
+    language_display = [language.name for language in languages if language.is_dynamic()]
+    print(language_display)
 
 main()
