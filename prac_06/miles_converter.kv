@@ -5,44 +5,21 @@
         Rectangle:
             pos: self.pos
             size: self.size
-    #color: 0, 0, 0, 1
-
-<Label>:
-#   font_name: 'BuxtonSketch.ttf'
-    font_size: 34
-    background_normal: ''
-    background_down: 'atlas://data/images/defaulttheme/button'
-    canvas.after:
-        Line:
-            rectangle: self.x + 1, self.y + 1, self.width - 1, self.height - 1
-        Color:
-            rgba: 1, 1, 0, 1
-    color: (0, 0, 0, 1) #black
-
-<TextInput>:
-    markup: True
-    font_size: 34
-    #background_normal: ''
-    #background_down: 'atlas://data/images/defaulttheme/button'
-    canvas.after:
-        Line:
-            #rectangle: self.x + 1, self.y + 1, self.width - 1, self.height - 1
-        Color:
-            #rgba: 0, 0, 0, 1
-    color: (0, 0, 0, 0.5)
-    #foreground_color: (0, 0, 0, 0.5)
-
 BoxLayout:
     orientation: 'vertical'
     BoxLayout:
         orientation: 'horizontal'
         TextInput:
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1
             id: input_miles
-            size_hint: 3.0, 1.0
-            font_size: 34
-            text: '500.0'
-            color: (0, 0, 0, 1)
+            foreground_color: (1, 1, 0, 1)
+            text: '7'
+            font_size: 48
+            multiline: False
             on_text: app.handle_calculate(input_miles.text)
+
         BoxLayout:
             orientation: 'vertical'
             Button:
@@ -57,3 +34,10 @@ BoxLayout:
         id: output_label
         #color: (1, 1, 0, 1)
         #font_size: 34
+
+<Label>:
+    font_size: 34
+    background_normal: ''
+    color: (0, 0, 0, 1) #black
+
+

@@ -12,5 +12,5 @@ while color_search != "":
     except:
         print("Enter valid name from following list:")
         for color in sorted(color_dict):
-            print("{:5}{}".format("",color))
+            print("{:5}{}".format("", color))
     color_search = input("Enter color name: ")

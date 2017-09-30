@@ -1,11 +1,8 @@
 class ProgrammingLanguage:
     """CP1403 programming language class"""
 
-    def __init__(self, name: str = "", typing: str = "", reflection: bool = False, year: int = "0000"):
-        """initialise a language type
-
-        Reflection: boolean, False = 'No', True = 'Yes'
-        """
+    def __init__(self, name: str="", typing: str="", reflection: bool=False, year: int="0000"):
+        """initialise a language type"""
         self.name = name
         self.typing = typing
         self.reflection = reflection
@@ -13,7 +10,6 @@ class ProgrammingLanguage:
 
     def is_dynamic(self):
         """returns True if programming language is dynamic (as opposed to static)"""
-        #return True if self.typing == "Dynamic" else False
         return self.typing == "Dynamic"
 
     def __str__(self):

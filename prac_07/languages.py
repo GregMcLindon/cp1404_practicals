@@ -22,7 +22,4 @@ def main():
         if language.is_dynamic():
             print(language.name)
 
-    language_display = [language.name for language in languages if language.is_dynamic()]
-    print(language_display)
-
 main()
