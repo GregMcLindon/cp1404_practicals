@@ -1,0 +1,43 @@
+<Widget>:
+    canvas.before:
+        Color:
+            #rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        TextInput:
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1
+            id: input_miles
+            foreground_color: (1, 1, 0, 1)
+            text: '7'
+            font_size: 48
+            multiline: False
+            on_text: app.handle_calculate(input_miles.text)
+
+        BoxLayout:
+            orientation: 'vertical'
+            Button:
+                text: 'Up'
+                #font_size: 20
+                on_press: app.handle_increment(1)
+            Button:
+                text: 'Down'
+                #font_size: 20
+                on_press: app.handle_increment(-1)
+    Label:
+        id: output_label
+        #color: (1, 1, 0, 1)
+        #font_size: 34
+
+<Label>:
+    font_size: 34
+    background_normal: ''
+    color: (0, 0, 0, 1) #black
+
+
