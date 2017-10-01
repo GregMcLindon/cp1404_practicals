@@ -1,10 +1,7 @@
 """CP1403 prac_07 code written by Greg McLindon"""
 from prac_07.car import Car
 
-MENU = """Menu:
-d) drive
-r) refuel
-q) quit"""
+MENU = """Menu:\nd) drive\nr) refuel\nq) quit"""
 MENU_OPTIONS = {'d', 'r', 'q'}
 DRIVE_SELECTED = 'D'
 REFUEL_SELECTED = 'R'
@@ -19,7 +16,7 @@ def main():
         car_name = input("Enter your car name: ")
     car_in_play = Car(car_name, 100)
     menu_selection = ""
-    while menu_selection == "":
+    while menu_selection.upper() != QUIT_SELECTED:
         print(car_in_play)
         print(MENU)
         menu_selection = input("Enter your choice: ")
@@ -50,9 +47,6 @@ def main():
                         print("Fuel amount must be >= 0")
                 except:
                     print("Invalid fuel amount")
-        elif menu_selection.upper() == QUIT_SELECTED:
-            break
-        menu_selection = ""
-    print("\nGood bye {} driver.".format(car_in_play.model_name))
+    print("\nGood bye {}'s driver.".format(car_in_play.model_name))
 
 main()
