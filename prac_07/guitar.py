@@ -10,7 +10,7 @@ class Guitar:
 
     def __str__(self):
         """Used for printing guitar details"""
-        return "{} ({}) : ${}".format(
+        return "{} ({}) : ${:.2f}".format(
             self.name, self.year, self.cost)
 
     def get_age(self)->int:
