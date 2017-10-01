@@ -9,7 +9,7 @@ QUIT_SELECTED = 'Q'
 
 
 def main():
-    """build a car simulator using car class"""
+    """build a car simulator using car class."""
     print("Let's drive!")
     car_name = ""
     while car_name == "":

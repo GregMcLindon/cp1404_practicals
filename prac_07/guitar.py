@@ -1,5 +1,5 @@
 class Guitar:
-    """CP1403 guitar types class"""
+    """CP1403 guitar types class."""
 
     def __init__(self, name: str="", year: int=0, cost: float=0, current_year: int=0):
         """initialise a guitar type"""

@@ -1,4 +1,4 @@
-"""CP1403 prac_07 code written by Greg McLindon"""
+"""CP1403 prac_07 code written by Greg McLindon."""
 from prac_07.guitar import Guitar
 
 CURRENT_YEAR = 2017

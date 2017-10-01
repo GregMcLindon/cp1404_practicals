@@ -1,4 +1,4 @@
-"""CP1404/CP5632 Practical - Date class example."""
+"""CP1404/CP5632 Practical - Date class example"""
 
 
 class Date:
