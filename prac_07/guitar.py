@@ -14,8 +14,9 @@ class Guitar:
             self.name, self.year, self.cost)
 
     def get_age(self)->int:
-        """calculate age of guitar relative to the year this code was written (2017)"""
+        """calculate age of guitar relative to the current_year input parameter"""
         return self.current_year - self.year
 
     def is_vintage(self)->bool:
+        """returns True if age of guitar is greater than 50"""
         return self.get_age() > 50
