@@ -15,11 +15,12 @@ class Car:
 
     def __str__(self):
         """used for printing car details"""
-        return "{}, fuel={}, odometer={}".format(self.model_name, self.fuel, self.odometer)
+        return "{}, fuel={:.0f}, odometer={:.0f}".format(self.model_name, self.fuel, self.odometer)
 
     def add_fuel(self, amount):
         """Add amount to the car's fuel."""
         self.fuel += amount
+        return amount
 
     def drive(self, distance):
         """Drive the car a given distance.
