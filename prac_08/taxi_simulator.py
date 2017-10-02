@@ -15,6 +15,7 @@ def main():
              SilverServiceTaxi("Hummer", 200, 4)]
     print("Let's drive!")
     total_fare = 0
+    taxi_chosen = None
     print(MENU)
     menu_choice = input(">>> ").lower()
     while menu_choice.lower() != QUIT:
@@ -22,26 +23,29 @@ def main():
             print("Taxis available:")
             display_taxis(taxis)
             taxi_chosen = get_taxi(taxis)
-            # print("Taxis available:")
-            # display_taxis(taxis)
-            # valid_taxi = False
-            # while not valid_taxi:
-            #     taxi_choice = input("Choose taxi: ")
-            #     try:
-            #         taxi_choice = int(taxi_choice)
-            #         if 0 <= taxi_choice < len(taxis):
-            #             print("Bill to date: ${:.2f}".format(taxis[taxi_choice].get_fare()))
-            #             valid_taxi = True
-            #         else:
-            #             print("invalid choice")
-            #     except:
-            #         print("invalid choice")
         elif menu_choice == DRIVE:
+            #print("Drive how far?")
+            if taxi_chosen == "":
+            valid_taxi = False
+            while not valid_taxi:
+                taxi_choice = input("Choose taxi: ")
+                try:
+                    taxi_choice = int(taxi_choice)
+                    if 0 <= taxi_choice < len(taxis):
+                        print("Bill to date: ${:.2f}".format(taxis[taxi_choice].get_fare()))
+                        valid_taxi = True
+                    else:
+                        print("invalid choice")
+                except:
+                    print("invalid choice")
+
+
             'TODO - call drive method'
             'TODO - update fare cost based on drive'
             pass
         else:
             print("Invalid selection")
+        print(MENU)
         menu_choice = input(">>> ").lower()
 
     print("Total trip cost: ${:.2f}\nTaxis are now:".format(total_fare))
@@ -63,6 +67,7 @@ def get_taxi(taxis)->int:
         except:
             print("invalid choice")
     return taxi_choice
+
 
 def display_taxis(taxis):
     """display available taxis in list format"""
