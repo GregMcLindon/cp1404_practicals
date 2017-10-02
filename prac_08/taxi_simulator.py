@@ -9,13 +9,15 @@ QUIT = 'q'
 CHOOSE = 'c'
 DRIVE = 'd'
 
+
 def main():
     """"run the simulator"""
     taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2),
              SilverServiceTaxi("Hummer", 200, 4)]
-    print("Let's drive!")
     total_fare = 0
     taxi_chosen = None
+    distance_to_drive = 0
+    print("Let's drive!")
     print(MENU)
     menu_choice = input(">>> ").lower()
     while menu_choice.lower() != QUIT:
@@ -23,25 +25,28 @@ def main():
             print("Taxis available:")
             display_taxis(taxis)
             taxi_chosen = get_taxi(taxis)
+            print("Bill to date: ${:.2f}".format(total_fare))
         elif menu_choice == DRIVE:
-            #print("Drive how far?")
-            if taxi_chosen == "":
-            valid_taxi = False
-            while not valid_taxi:
-                taxi_choice = input("Choose taxi: ")
-                try:
-                    taxi_choice = int(taxi_choice)
-                    if 0 <= taxi_choice < len(taxis):
-                        print("Bill to date: ${:.2f}".format(taxis[taxi_choice].get_fare()))
-                        valid_taxi = True
-                    else:
-                        print("invalid choice")
-                except:
-                    print("invalid choice")
-
-
-            'TODO - call drive method'
-            'TODO - update fare cost based on drive'
+            if taxi_chosen is None:
+                print("choose taxi first")
+            elif taxis[taxi_chosen].fuel == 0:
+                print("taxi has no fuel choose another taxi")
+            else:
+                while distance_to_drive <= 0:
+                    try:
+                        distance_to_drive = int(input("Drive how far? "))
+                        if distance_to_drive < 0:
+                            print("distance must be >= 0")
+                        else:
+                            taxis[taxi_chosen].start_fare()
+                            taxis[taxi_chosen].drive(distance_to_drive)
+                            total_fare += taxis[taxi_chosen].get_fare()
+                            print("Your {} trip cost you ${:.2f}".format(taxis[taxi_chosen].model_name
+                                                                         , taxis[taxi_chosen].get_fare()))
+                            print("Bill to date: ${:.2f}".format(total_fare))
+                    except:
+                        print("invalid distance")
+                distance_to_drive = 0
             pass
         else:
             print("Invalid selection")
@@ -56,11 +61,9 @@ def get_taxi(taxis)->int:
     taxi_choice = ""
     valid_taxi = False
     while not valid_taxi:
-        taxi_choice = input("Choose taxi: ")
         try:
-            taxi_choice = int(taxi_choice)
+            taxi_choice = int(input("Choose taxi: "))
             if 0 <= taxi_choice < len(taxis):
-                print("Bill to date: ${:.2f}".format(taxis[taxi_choice].get_fare()))
                 valid_taxi = True
             else:
                 print("invalid choice")
@@ -74,16 +77,5 @@ def display_taxis(taxis):
     for i, taxi in enumerate(taxis):
         print("{} - {}".format(i, str(taxi)))
 
-#     my_taxi = Taxi("Prius 1", 100)
-#     my_taxi.drive(40)
-#     print_fare_details(my_taxi)
-#     my_taxi.start_fare()
-#     my_taxi.add_fuel(40)
-#     my_taxi.drive(100)
-#     print_fare_details(my_taxi)
-#
-#
-# def print_fare_details(taxi_instance):
-#     return print(str(taxi_instance), ", fare: ${:.2f}".format(taxi_instance.get_fare()))
 
 main()
