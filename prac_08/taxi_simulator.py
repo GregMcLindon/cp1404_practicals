@@ -1,6 +1,8 @@
-"""CP1404 Prac 07
+"""
+CP1404 Prac 07
 Client code to test polymorphism using both Taxi and SilerverServiceTaxi classes in a single app
-Written by Greg McLindon"""
+Written by Greg McLindon
+"""
 
 from prac_08.taxi import Taxi
 from prac_08.silver_service_taxi import SilverServiceTaxi
