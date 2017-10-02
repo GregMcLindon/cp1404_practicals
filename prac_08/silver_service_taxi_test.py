@@ -1,4 +1,4 @@
-"""CP1403 Prac 07
+"""CP1404 Prac 07
 Client code to test the SilverServiceTaxi subclass of Taxi (car) class
 Written by Greg McLindon"""
 
