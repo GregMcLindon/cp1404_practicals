@@ -3,7 +3,6 @@ CP1404 Practical
 UnreliableCar class
 """
 from prac_08.car import Car
-#price_per_km = 1.23
 
 
 class UnreliableCar(Car):
@@ -13,8 +12,6 @@ class UnreliableCar(Car):
         """Initialise a Taxi instance, based on parent class Car."""
         super().__init__(name, fuel)
         self.reliability_factor = reliability_factor
-        #self.price_per_km = price_per_km
-        #self.current_fare_distance = 0
 
     def drive(self, distance):
         """Drive only works if car's reliability factor is greater than random int between 0-100"""

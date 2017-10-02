@@ -4,11 +4,11 @@ Written by Greg McLindon"""
 
 from prac_08.taxi import Taxi
 
+
 def main():
     """"run the test code"""
     my_taxi = Taxi("Prius 1", 100)
     my_taxi.drive(40)
-    #print(str(my_taxi), ", fare: ${:.2f}".format(my_taxi.get_fare()))
     print_fare_details(my_taxi)
     my_taxi.start_fare()
     my_taxi.add_fuel(40)
