@@ -47,7 +47,6 @@ def main():
                     except:
                         print("invalid distance")
                 distance_to_drive = 0
-            pass
         else:
             print("Invalid selection")
         print(MENU)
