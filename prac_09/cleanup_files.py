@@ -44,7 +44,7 @@ def get_fixed_filename(filename):
             new_name += "_" + letter
         elif letter == '(' and file_name_segment[x-1] != '_':
             new_name += "_" + letter
-        elif file_name_segment[x-1] == "'": # needed for titles with "it's" in the string i.e. "It'syourblood"
+        elif file_name_segment[x-1] == "'":  # needed for titles with "it's" in the string i.e. "It'syourblood"
             new_name = new_name.replace("'", "") + letter + "_"
         else:
             new_name += letter
