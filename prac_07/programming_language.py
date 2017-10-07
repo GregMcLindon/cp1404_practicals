@@ -1,7 +1,7 @@
 class ProgrammingLanguage:
     """CP1403 programming language class."""
 
-    def __init__(self, name: str="", typing: str="", reflection: bool=False, year: int="0000"):
+    def __init__(self, name: str="", typing: str="", reflection: bool=False, year: int=0):
         """initialise a language type"""
         self.name = name
         self.typing = typing
