@@ -5,58 +5,47 @@ File renaming and os examples
 import shutil
 import os
 
+
 def main():
     """Demo file renaming with the os module."""
-    #print("Current directory is", os.getcwd())
-
     # change to desired directory
-    os.chdir('Lyrics/Christmas')
-    # print a list of all files (test)
-    #print(os.listdir('.'))
-    make_temp_dir()
+    os.chdir('Lyrics')
+    print("Current directory is", os.getcwd())
+    for dir_name, subdir_list, file_list in os.walk('.'):
+        if len(file_list) != 0 and dir_name[-5:] != '\\temp':
+            print("\nNow processing directory:\n\t", dir_name, "\nNew Files names are:")
+            make_temp_dir(dir_name)
+            for filename in file_list:
+                new_name = get_fixed_filename(filename)
+                print("\t", new_name)
+                shutil.copy(dir_name + '/' + filename, dir_name + '/temp/' + new_name)
+    print("\nAll files renamed and moved to temp folders within subfolder")
 
-    # loop through each file in the (original) directory
-    for filename in os.listdir('.'):
-        # ignore directories, just process files
-        if not os.path.isdir(filename):
-            new_name = get_fixed_filename(filename)
-            #print(new_name)
 
-            # Option 1: rename file to new name - in place
-            #os.rename(filename, new_name)
-
-            # Option 2: move file to new place, with new name
-            shutil.copy(filename, 'temp/' + new_name)
-    os.chdir('temp')
-    print("Files renamed and moved to:\n{}".format(os.getcwd()))
-
-            # Processing subdirectories using os.walk()
-
-            # os.chdir('..')  # .. means "up" one directory
-            # for dir_name, subdir_list, file_list in os.walk('.'):
-            #     print("In", dir_name)
-            #     print("\tcontains subdirectories:", subdir_list)
-            #     print("\tand files:", file_list)
-
-def make_temp_dir():
+def make_temp_dir(dir_name):
     """make a new directory if not already exists."""
     try:
-        os.mkdir('temp')
+        os.mkdir(dir_name + '\\temp')
     except FileExistsError:
         # do nothing
-        print("exists")
+        pass
+
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
     new_name = ""
-    # split the file name from the file extension
+    # split the file name from the file extension and convert spaces to underscores
     file_name_segment = os.path.splitext(filename)[0].replace(' ', '_')
-    # replace .TXT with .txt (or change to .lower if all files to be lower case)
+    # replace .TXT with .txt (or change to .lower if all file extensions to be lower case)
     file_ext = os.path.splitext(filename)[1].replace('.TXT', '.txt')
     # fix camel case (add underscore in front of each uppercase letter that isn't preceded by parenthesis or underscore)
     for x, letter in enumerate(file_name_segment):
         if x != 0 and letter.isupper() and file_name_segment[x-1] not in ('(', '_'):
             new_name += "_" + letter
+        elif letter == '(' and file_name_segment[x-1] != '_':
+            new_name += "_" + letter
+        elif file_name_segment[x-1] == "'": # needed for titles with "it's" in the string i.e. "It'syourblood"
+            new_name = new_name.replace("'", "") + letter + "_"
         else:
             new_name += letter
     # now convert each word to title case and add file extention back in
