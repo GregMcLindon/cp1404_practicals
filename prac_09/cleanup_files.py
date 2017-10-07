@@ -7,31 +7,28 @@ import os
 
 def main():
     """Demo file renaming with the os module."""
-    print("Current directory is", os.getcwd())
+    #print("Current directory is", os.getcwd())
 
     # change to desired directory
     os.chdir('Lyrics/Christmas')
     # print a list of all files (test)
-    print(os.listdir('.'))
-
-    # make a new directory
-    try:
-        os.mkdir('temp')
-    except FileExistsError:
-        pass
+    #print(os.listdir('.'))
+    make_temp_dir()
 
     # loop through each file in the (original) directory
     for filename in os.listdir('.'):
         # ignore directories, just process files
         if not os.path.isdir(filename):
             new_name = get_fixed_filename(filename)
-            print(new_name)
+            #print(new_name)
 
             # Option 1: rename file to new name - in place
             #os.rename(filename, new_name)
 
             # Option 2: move file to new place, with new name
-            #shutil.move(filename, 'temp/' + new_name)
+            shutil.copy(filename, 'temp/' + new_name)
+    os.chdir('temp')
+    print("Files renamed and moved to:\n{}".format(os.getcwd()))
 
             # Processing subdirectories using os.walk()
 
@@ -41,6 +38,13 @@ def main():
             #     print("\tcontains subdirectories:", subdir_list)
             #     print("\tand files:", file_list)
 
+def make_temp_dir():
+    """make a new directory if not already exists."""
+    try:
+        os.mkdir('temp')
+    except FileExistsError:
+        # do nothing
+        print("exists")
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
