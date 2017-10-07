@@ -1,4 +1,4 @@
-"""CP1404/CP5632 Practical - Date class example."""
+"""CP1404/CP5632 Practical - Date class example"""
 
 
 class Date:
@@ -67,3 +67,5 @@ def get_days_in_month(month_to_get, is_leap_year):
     else:
         days_in_month = 31
     return days_in_month
+
+

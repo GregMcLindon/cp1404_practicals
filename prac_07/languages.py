@@ -1,4 +1,4 @@
-"""CP1404 client code to use in the programming language class."""
+"""CP1404 client code to use in the programming language class"""
 
 from prac_07.programming_language import ProgrammingLanguage
 

@@ -1,4 +1,4 @@
-"""CP1404/CP5632 Practical - Client code to use the Car class."""
+"""CP1404/CP5632 Practical - Client code to use the Car class"""
 # Note that the import has a folder (module) in it.
 
 from prac_07.car import Car

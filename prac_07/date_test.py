@@ -1,12 +1,6 @@
 """CP1403 prac_07 code written by Greg McLindon"""
 from prac_07.date import Date
 
-#  Current date test data
-# CURRENT_DAY = 1
-# CURRENT_MONTH = 10
-# CURRENT_YEAR = 2017
-
-#  Leap Year test data
 CURRENT_DAY = 29
 CURRENT_MONTH = 2
 CURRENT_YEAR = 2017
