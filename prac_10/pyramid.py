@@ -4,21 +4,21 @@ Calculate number of blocks needed to build 2D pyramid for n rows
 """
 
 
-# def get_blocks(rows):
-#     """Calculate blocks needed for pyramid for n rows (loop version)."""
-#     count_blocks = 0
-#     for x in range(0, rows):
-#         count_blocks += rows
-#         rows -= 1
-#     print(count_blocks)
+def get_blocks_loop(rows):
+    """Calculate blocks needed for pyramid for n rows (loop version)."""
+    count_blocks = 0
+    for x in range(0, rows):
+        count_blocks += rows
+        rows -= 1
+    return count_blocks
 
-# get_blocks(4)
+print(get_blocks_loop(4))
 
-def get_blocks(rows):
+def get_blocks_recursion(rows):
     """Calculate blocks needed for pyramid for n rows (recursion version)."""
     if rows >= 0:
-        return rows + get_blocks(rows-1)
+        return rows + get_blocks_recursion(rows-1)
     else:
         return 0
 
-print(get_blocks(4))
+print(get_blocks_recursion(4))
