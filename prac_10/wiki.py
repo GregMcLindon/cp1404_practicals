@@ -37,6 +37,8 @@ def search_wiki():
                 except:
                     print("Invalid selection (input must be integer)")
                 search_option = input("Enter Wiki disambiguation number: ")
+        except wikipedia.exceptions.PageError:
+            print("No results returned. Try another search.")
         search_string = "\'" + input("Enter Wikipedia search: ") + "\'"
 
 search_wiki()
