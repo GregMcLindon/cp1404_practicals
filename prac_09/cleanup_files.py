@@ -39,18 +39,18 @@ def get_fixed_filename(filename):
     # replace .TXT with .txt (or change to .lower if all file extensions to be lower case)
     file_ext = os.path.splitext(filename)[1].replace('.TXT', '.txt')
     # fix camel case (add underscore in front of each uppercase letter that isn't preceded by parenthesis or underscore)
-    for x, letter in enumerate(file_name_segment):
-        if x != 0 and letter.isupper() and file_name_segment[x-1] not in ('(', '_'):
+    for i, letter in enumerate(file_name_segment):
+        if i != 0 and letter.isupper() and file_name_segment[i-1] not in ('(', '_'):
             new_name += "_" + letter
-        elif letter == '(' and file_name_segment[x-1] != '_':
+        elif letter == '(' and file_name_segment[i-1] != '_':
             new_name += "_" + letter
-        elif file_name_segment[x-1] == "'":  # needed for titles with "it's" in the string i.e. "It'syourblood"
+        elif file_name_segment[i-1] == "'":  # needed for titles with "it's" in the string i.e. "It'syourblood"
             new_name = new_name.replace("'", "") + letter + "_"
+        elif file_name_segment[i - 1] in ('(', '_') or i == 0 or file_name_segment[i-2] == "'":
+            new_name += letter.upper()
         else:
             new_name += letter
-    # now convert each word to title case and add file extention back in
-    new_name_words = new_name.split('_')
-    new_name = "{}{}".format("_".join("{}".format(word.title()) for word in new_name_words), file_ext)
+    new_name = "{}{}".format(new_name, file_ext)
     return new_name
 
 main()
